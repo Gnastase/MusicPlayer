@@ -1,9 +1,6 @@
 package ex1;
 
 import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 public class Main {
 
@@ -50,12 +47,13 @@ public class Main {
         System.out.println("Total Time");
 
         System.out.println(Player.totalDurations(songs));
+        System.out.println(PlayerStream.totalDurationsStream(songs));
 
         System.out.println();
         System.out.println("Total time spent");
 
         System.out.println(Player.timeSpent(songs,historyMap));
-
+        System.out.println(PlayerStream.timeSpentStream(songs,historyMap));
     }
 }
 
