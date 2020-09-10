@@ -33,8 +33,8 @@ public class Piesa {
         return this;
     }
 
-    private String   nume;
-    private float    durata;
+    private final String   nume;
+    private final float    durata;
     private boolean  flag;
 
     public Piesa(String nume, float durata, Boolean flag) {

@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 public class Player {
 
+
     static ArrayList<Piesa> filter(ArrayList<Piesa> input){
 
         ArrayList<Piesa> pieseLocal = new ArrayList<>();
@@ -22,7 +23,7 @@ public class Player {
 
 
 
-    static void playSong(ArrayList<Piesa> input,int songNumber,HashMap<Piesa, Integer> historyMap){
+    static <T extends Piesa> void playSong(ArrayList<T> input,int songNumber,HashMap<Piesa, Integer> historyMap){
         input.get(songNumber).setFlag(true);
 
         if (null != historyMap.get(input.get(songNumber))){
@@ -32,12 +33,12 @@ public class Player {
         }
     }
 
-    static void resetPlays(ArrayList<Piesa> input){
+    static <T extends Piesa> void resetPlays(ArrayList<T> input){
 
-        ArrayList<Piesa> piese = new ArrayList<>();
+        ArrayList<T> piese = new ArrayList<>();
         for(Piesa var: input){
             var.setFlag(false);
-            piese.add(var);
+            piese.add((T) var);
         }
 
 
@@ -46,7 +47,7 @@ public class Player {
 
 
 
-    static void playSomething(int howMany,ArrayList<Piesa> input, HashMap<Piesa, Integer> historyMap){
+    static <T extends  Piesa> void playSomething(int howMany,ArrayList<T> input, HashMap<Piesa, Integer> historyMap){
 
         Random rand = new Random();
 
