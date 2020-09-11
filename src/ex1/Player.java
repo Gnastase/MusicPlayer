@@ -3,10 +3,8 @@ package ex1;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
-public class Player {
+ public  class Player {
 
 
     static ArrayList<Piesa> filter(ArrayList<Piesa> input){
@@ -21,9 +19,7 @@ public class Player {
         return pieseLocal;
     }
 
-
-
-    static <T extends Piesa> void playSong(ArrayList<T> input,int songNumber,HashMap<Piesa, Integer> historyMap){
+    static <T extends Piesa> void playSomething(ArrayList<T> input, int songNumber, HashMap<Piesa, Integer> historyMap){
         input.get(songNumber).setFlag(true);
 
         if (null != historyMap.get(input.get(songNumber))){
@@ -44,34 +40,31 @@ public class Player {
 
     }
 
-
-
-
     static <T extends  Piesa> void playSomething(int howMany,ArrayList<T> input, HashMap<Piesa, Integer> historyMap){
 
         Random rand = new Random();
 
         for (int i=0; i<howMany; i++) {
-            playSong(input, rand.nextInt(input.size() - 1),historyMap );
+            playSomething(input, rand.nextInt(input.size() - 1),historyMap );
         }
 
     }
-   static int totalDurations(ArrayList<Piesa> input){
+   static <T extends Piesa> int totalDurations(ArrayList<T> input){
         int total = 0;
 
-        for(Piesa song: input){
-            total += song.getDurata();
+        for(T elem: input){
+            total += elem.getDurata();
         }
         return total;
    }
 
-   static int timeSpent(ArrayList<Piesa> input, HashMap<Piesa, Integer> historyMap){
+   static <T extends  Piesa> int timeSpent(ArrayList<T> input, HashMap<Piesa, Integer> historyMap){
        int total = 0;
 
-       for(Piesa song: input){
+       for(T elem: input){
 
-           if (null != historyMap.get(song)){
-               total += historyMap.get(song) * song.getDurata();
+           if (null != historyMap.get(elem)){
+               total += historyMap.get(elem) * elem.getDurata();
            }
 
        }
