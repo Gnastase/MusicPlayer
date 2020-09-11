@@ -98,7 +98,7 @@ public class Main {
 
         letTheShowStart(songs,movies,historyMap);
         showMeTheCounts(historyMap);
-        showMeTheTimeSpent(movies,historyMap); // dece nu merge sa ii dau lafel cu T la ambele, chiar daca sunt diferite, mostenesc aceeasi clasa
+        showMeTheTimeSpent(movies,historyMap);
         showMeTheMoviesWhich(Movie::getFlag);
 
         showMeTheMusicAssigment(songs,movies);

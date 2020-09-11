@@ -34,6 +34,6 @@ public class PlayerStream  {
         return input
                 .stream()
                 .filter(historyMap::containsKey)
-                .reduce(0f, (subtotal, element) -> subtotal + (element.getDurata() * historyMap.get(element)), (a,b) -> a+b); // de cee imi trebe composer ca sa permite tipuri de date diferite
+                .reduce(0f, (subtotal, element) -> subtotal + (element.getDurata() * historyMap.get(element)), (a,b) -> a+b);
     }
 }
