@@ -1,12 +1,21 @@
-package ex1;
+package ex1.Common;
 
-import java.lang.reflect.Array;
+
+import ex1.Movie.DaggerMovieComponent;
+import ex1.Movie.Movie;
+import ex1.Movie.MovieComponent;
+import ex1.Piesa.DaggerPiesaComponent;
+import ex1.Piesa.Piesa;
+import ex1.Piesa.PiesaComponent;
+import lombok.NoArgsConstructor;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
+@NoArgsConstructor
 public class Helper {
 
-    static <T extends  Piesa> void showMeList(ArrayList<T> list){
+    public static <T extends  Piesa> void showMeList(ArrayList<T> list){
 
         list
                 .stream()
@@ -14,7 +23,7 @@ public class Helper {
 
     }
 
-    static <T extends  Piesa> void sortMeTheList(ArrayList<T> list){
+    public static <T extends  Piesa> void sortMeTheList(ArrayList<T> list){
 
         Helper.showMeList(new ArrayList<>(list
                 .stream()
@@ -23,7 +32,7 @@ public class Helper {
 
     }
 
-    static <T extends  Piesa> T getRandomElement(ArrayList<T> piese){
+    public static <T extends  Piesa> T getRandomElement(ArrayList<T> piese){
 
         Random rand = new Random();
         long length = piese.stream().count();
@@ -33,7 +42,7 @@ public class Helper {
 
     }
 
-    static <T extends  Piesa> HashSet<T> generateHashSet(ArrayList<T> piese){
+    static <T extends Piesa> HashSet<T> generateHashSet(ArrayList<T> piese){
 
         Random rand = new Random();
         HashSet<T> set = new HashSet<>();
@@ -46,33 +55,34 @@ public class Helper {
         return set;
     }
 
-    static ArrayList<Piesa> getPlaylist(){
+    public static ArrayList<Piesa> getPlaylist(){
 
         ArrayList<Piesa> piese = new ArrayList<>();
-        piese.add(new Piesa("Mad Quelia",100,false));
-        piese.add(new Piesa("Mad Man",233,true));
-        piese.add(new Piesa("Mad Soul",345,false));
-        piese.add(new Piesa("Happy Quelia",142,false));
-        piese.add(new Piesa("Happy Man",354,true));
-        piese.add(new Piesa("Happy Soul",123,false));
-        piese.add(new Movie("da", 12,true,"AA"));
+
+        PiesaComponent piesaComponent = DaggerPiesaComponent.create();
+
+        for (int i=0; i<5; i++) {
+           piese.add(piesaComponent.buildPiesa());
+        }
 
         return piese;
     }
 
-    static ArrayList<Movie> getMovieList(){
+    public static ArrayList<Movie> getMovieList(){
 
         ArrayList<Movie> filme = new ArrayList<>();
 
-        filme.add(new Movie("Harry Potter 1", 200,true,"Gigi"));
-        filme.add(new Movie("Black Man", 150,false,"Bigi"));
-        filme.add(new Movie("Oile", 333,true,"Digi"));
-        filme.add(new Movie("Motan", 12,true,"GR"));
+        MovieComponent movieComponent = DaggerMovieComponent.create();
+
+        for(int i=0;i<4;i++){
+            filme.add(movieComponent.buildMovie());
+        }
+
 
         return filme;
     }
 
-    static HashMap<Movie, HashSet<Piesa>> assignMusic(ArrayList<Piesa> piese, ArrayList<Movie> filme){
+    public static HashMap<Movie, HashSet<Piesa>> assignMusic(ArrayList<Piesa> piese, ArrayList<Movie> filme){
 
         HashMap<Movie, HashSet<Piesa>> contentMap = new HashMap<>();
 
@@ -83,7 +93,7 @@ public class Helper {
         return  contentMap;
     }
 
-    static void showMovieSong(Movie movie, HashMap<Movie, HashSet<Piesa>> map){
+    public static void showMovieSong(Movie movie, HashMap<Movie, HashSet<Piesa>> map){
 
         System.out.println(movie);
         Optional<HashSet<Piesa>> playlist = Optional.ofNullable(map.get(movie));

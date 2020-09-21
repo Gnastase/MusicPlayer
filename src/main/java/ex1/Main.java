@@ -1,6 +1,11 @@
 package ex1;
 
-import java.lang.reflect.Array;
+import ex1.Common.Helper;
+import ex1.Movie.Movie;
+import ex1.Piesa.Piesa;
+import ex1.Player.Player;
+import ex1.Player.PlayerStream;
+
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -19,7 +24,7 @@ public class Main {
     }
 
     static void showMeTheMoviesWhich(Predicate
-                                             <? super ex1.Movie> pred){
+                                             <? super Movie> pred){
         System.out.println();
         System.out.println("showMeTheMoviesWhich");
 
@@ -44,13 +49,15 @@ public class Main {
             System.out.println(elem.toString());
         }
     }
-    static void letTheShowStart(ArrayList<Piesa> songs, ArrayList<Movie> movies,HashMap<Piesa, Integer> historyMap ){
+    static void
+    letTheShowStart(ArrayList<Piesa> songs, ArrayList<Movie> movies,HashMap<Piesa, Integer> historyMap ){
         System.out.println();
         System.out.println("letTheShowStart");
 
+        //astea 2 ruleaza in pararel
         PlayerStream.resetStreams(songs);
         Player.resetPlays(movies);
-
+        //dupa ce ambele sunt complete incepe asta
         Player.playSomething(25,songs,historyMap);
         Player.playSomething(2,movies,historyMap);
 
@@ -68,7 +75,7 @@ public class Main {
         }
     }
 
-    static <T extends  Piesa>  void showMeTheTimeSpent(ArrayList<T> list,HashMap<Piesa, Integer> historyMap){/// dece nu merge la HashMap tot nu T
+    static < T extends Piesa>  void showMeTheTimeSpent(ArrayList<T> list,HashMap<? extends Piesa , Integer> historyMap){/// de ce nu merge la HashMap tot nu T
 
 
 
@@ -89,28 +96,47 @@ public class Main {
 
     }
 
-    public static void main (String[] args) {
-
+    public static void runSingleThread(){
         ArrayList<Piesa> songs = Helper.getPlaylist();
         ArrayList<Movie> movies = Helper.getMovieList();
         HashMap<Piesa, Integer> historyMap = new HashMap<>();
 
-
         letTheShowStart(songs,movies,historyMap);
+
         showMeTheCounts(historyMap);
         showMeTheTimeSpent(movies,historyMap);
         showMeTheMoviesWhich(Movie::getFlag);
-
         showMeTheMusicAssigment(songs,movies);
-
         showMeThePlayed(songs);
+
 
         Helper.sortMeTheList(songs);
-
         showMeThePlayed(songs);
 
 
+    }
+    public static void runMultiThread(){
+        ArrayList<Piesa> songs = Helper.getPlaylist();
+        ArrayList<Movie> movies = Helper.getMovieList();
+        HashMap<Piesa, Integer> historyMap = new HashMap<>();
 
+        letTheShowStart(songs,movies,historyMap);
+
+        showMeTheCounts(historyMap);
+        showMeTheTimeSpent(movies,historyMap);
+        showMeTheMoviesWhich(Movie::getFlag);
+        showMeTheMusicAssigment(songs,movies);
+        showMeThePlayed(songs);
+
+
+        Helper.sortMeTheList(songs);
+        showMeThePlayed(songs);
+
+    }
+    public static void main (String[] args) {
+
+        runSingleThread();
+       // runMultiThread();
 
     }
 }

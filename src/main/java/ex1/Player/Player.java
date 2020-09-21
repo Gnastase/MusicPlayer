@@ -1,11 +1,12 @@
-package ex1;
+package ex1.Player;
+
+import ex1.Piesa.Piesa;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
  public  class Player {
-
 
     static ArrayList<Piesa> filter(ArrayList<Piesa> input){
 
@@ -29,7 +30,7 @@ import java.util.Random;
         }
     }
 
-    static <T extends Piesa> void resetPlays(ArrayList<T> input){
+    public static <T extends Piesa> void resetPlays(ArrayList<T> input){
 
         ArrayList<T> piese = new ArrayList<>();
         for(Piesa var: input){
@@ -37,10 +38,8 @@ import java.util.Random;
             piese.add((T) var);
         }
 
-
     }
-
-    static <T extends  Piesa> void playSomething(int howMany,ArrayList<T> input, HashMap<Piesa, Integer> historyMap){
+    public static <T extends Piesa> void playSomething(int howMany, ArrayList<T> input, HashMap<Piesa, Integer> historyMap){
 
         Random rand = new Random();
 
@@ -49,7 +48,7 @@ import java.util.Random;
         }
 
     }
-   static <T extends Piesa> int totalDurations(ArrayList<T> input){
+   public static <T extends Piesa> int totalDurations(ArrayList<T> input){
         int total = 0;
 
         for(T elem: input){
@@ -58,7 +57,7 @@ import java.util.Random;
         return total;
    }
 
-   static <T extends  Piesa> int timeSpent(ArrayList<T> input, HashMap<Piesa, Integer> historyMap){
+   public static <T extends  Piesa> int timeSpent(ArrayList<T> input, HashMap<? extends Piesa, Integer> historyMap){
        int total = 0;
 
        for(T elem: input){
