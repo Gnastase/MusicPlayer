@@ -1,6 +1,6 @@
-package ex1.Player;
+package PrimulExercitiu.Player;
 
-import ex1.Piesa.Piesa;
+import PrimulExercitiu.Model.Piesa;
 
 import java.util.ArrayList;
 import java.util.HashMap;

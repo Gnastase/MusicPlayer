@@ -1,14 +1,12 @@
-package ex1.Movie;
+package PrimulExercitiu.Injection.Movie;
 
 
+import PrimulExercitiu.Injection.Artist.ArtistComponent;
+import PrimulExercitiu.Injection.Artist.DaggerArtistComponent;
 import dagger.Module;
 import dagger.Provides;
-import ex1.Author.ArtistComponent;
-import ex1.Author.Author;
-import ex1.Author.DaggerArtistComponent;
-import ex1.Common.DataSource;
-
-import javax.xml.crypto.Data;
+import PrimulExercitiu.Model.Author;
+import PrimulExercitiu.Common.DataSource;
 
 @Module
 public class MovieModule {

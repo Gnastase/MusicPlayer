@@ -1,5 +1,6 @@
-package ex1.Piesa;
+package PrimulExercitiu.Injection.Piesa;
 
+import PrimulExercitiu.Model.Piesa;
 import dagger.Component;
 
 import javax.inject.Singleton;

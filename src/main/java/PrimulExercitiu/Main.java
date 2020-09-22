@@ -1,10 +1,10 @@
-package ex1;
+package PrimulExercitiu;
 
-import ex1.Common.Helper;
-import ex1.Movie.Movie;
-import ex1.Piesa.Piesa;
-import ex1.Player.Player;
-import ex1.Player.PlayerStream;
+import PrimulExercitiu.Common.Helper;
+import PrimulExercitiu.Model.Movie;
+import PrimulExercitiu.Model.Piesa;
+import PrimulExercitiu.Player.Player;
+import PrimulExercitiu.Player.PlayerStream;
 
 import java.util.*;
 import java.util.function.Predicate;
@@ -30,10 +30,9 @@ public class Main {
 
         ArrayList<Movie> movies = Helper.getMovieList();
 
-
-        Helper.showMeList(new ArrayList<Movie>(movies.stream()
+        Helper.showMeList(movies.stream()
                 .filter(pred)
-                .collect(Collectors.toList()))); // este ok asa ?
+                .collect(Collectors.toList()));
 
     }
 

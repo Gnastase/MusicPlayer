@@ -1,8 +1,8 @@
-package ex1.Piesa;
+package PrimulExercitiu.Injection.Piesa;
 
 import dagger.Module;
 import dagger.Provides;
-import ex1.Common.DataSource;
+import PrimulExercitiu.Common.DataSource;
 
 
 @Module

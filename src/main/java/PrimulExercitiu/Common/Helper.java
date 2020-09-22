@@ -1,12 +1,12 @@
-package ex1.Common;
+package PrimulExercitiu.Common;
 
 
-import ex1.Movie.DaggerMovieComponent;
-import ex1.Movie.Movie;
-import ex1.Movie.MovieComponent;
-import ex1.Piesa.DaggerPiesaComponent;
-import ex1.Piesa.Piesa;
-import ex1.Piesa.PiesaComponent;
+import PrimulExercitiu.Injection.Movie.DaggerMovieComponent;
+import PrimulExercitiu.Model.Movie;
+import PrimulExercitiu.Injection.Movie.MovieComponent;
+import PrimulExercitiu.Injection.Piesa.DaggerPiesaComponent;
+import PrimulExercitiu.Model.Piesa;
+import PrimulExercitiu.Injection.Piesa.PiesaComponent;
 import lombok.NoArgsConstructor;
 
 import java.util.*;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class Helper {
 
-    public static <T extends  Piesa> void showMeList(ArrayList<T> list){
+    public static <T extends  Piesa> void showMeList(List<T> list){
 
         list
                 .stream()

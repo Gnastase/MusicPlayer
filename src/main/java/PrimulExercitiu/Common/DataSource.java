@@ -1,6 +1,5 @@
-package ex1.Common;
+package PrimulExercitiu.Common;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
