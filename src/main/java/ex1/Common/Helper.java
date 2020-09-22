@@ -37,7 +37,7 @@ public class Helper {
         Random rand = new Random();
         long length = piese.stream().count();
 
-        return piese.get(rand.nextInt((int) length - 1));
+        return piese.get(rand.nextInt((int) length));
 
 
     }

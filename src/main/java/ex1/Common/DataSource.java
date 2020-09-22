@@ -10,7 +10,7 @@ public class DataSource {
         Random rand = new Random();
         long length = list.stream().count();
 
-        return list.get(rand.nextInt((int) length - 1));
+        return list.get(rand.nextInt((int) length));
     }
 
     static public String GetAName(){
