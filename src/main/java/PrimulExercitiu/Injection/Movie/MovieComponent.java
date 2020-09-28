@@ -1,7 +1,7 @@
 package PrimulExercitiu.Injection.Movie;
 
 
-import PrimulExercitiu.Model.Movie;
+import PrimulExercitiu.domain.Model.Movie;
 import dagger.Component;
 
 import javax.inject.Singleton;

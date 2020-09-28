@@ -1,24 +1,27 @@
 package PrimulExercitiu.Injection.Piesa;
 
+import PrimulExercitiu.Common.Helper;
+import PrimulExercitiu.domain.Connector.DataSourceIOConnector;
 import dagger.Module;
 import dagger.Provides;
-import PrimulExercitiu.Common.DataSource;
 
 
 @Module
 public class PiesaModule {
 
+    DataSourceIOConnector source = Helper.getSource();
+
     @Provides
     String provideNume(){
-        return DataSource.GetAName();
+        return source.GetAName();
     }
     @Provides
     Float provideDurata(){
-        return DataSource.getADuration();
+        return source.getADuration();
     }
 
     @Provides
     Boolean provideFlag(){
-        return DataSource.getABoolean();
+        return source.getABoolean();
     }
 }

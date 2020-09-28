@@ -1,29 +1,30 @@
 package PrimulExercitiu.Injection.Movie;
 
 
+import PrimulExercitiu.Common.Helper;
 import PrimulExercitiu.Injection.Artist.ArtistComponent;
 import PrimulExercitiu.Injection.Artist.DaggerArtistComponent;
+import PrimulExercitiu.domain.Connector.DataSourceIOConnector;
 import dagger.Module;
 import dagger.Provides;
-import PrimulExercitiu.Model.Author;
-import PrimulExercitiu.Common.DataSource;
+import PrimulExercitiu.domain.Model.Author;
 
 @Module
 public class MovieModule {
 
+    DataSourceIOConnector source = Helper.getSource();
+
     @Provides
-    String provideNume(){
-        return DataSource.GetAName();
-    }
+    String provideNume(){ return source.GetAName(); }
 
     @Provides
     Float provideDurata(){
-        return DataSource.getADuration();
+        return source.getADuration();
     }
 
     @Provides
     Boolean provideFlag(){
-        return DataSource.getABoolean();
+        return source.getABoolean();
     }
 
     @Provides

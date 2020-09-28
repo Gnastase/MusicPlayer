@@ -1,6 +1,6 @@
 package PrimulExercitiu.Injection.Artist;
 
-import PrimulExercitiu.Model.Author;
+import PrimulExercitiu.domain.Model.Author;
 import dagger.Component;
 
 import javax.inject.Singleton;
