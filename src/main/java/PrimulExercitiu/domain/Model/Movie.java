@@ -1,8 +1,6 @@
-package ex1.Movie;
+package PrimulExercitiu.domain.Model;
 
 
-import ex1.Author.Author;
-import ex1.Piesa.Piesa;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

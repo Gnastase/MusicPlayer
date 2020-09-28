@@ -1,4 +1,4 @@
-package ex1.Author;
+package PrimulExercitiu.domain.Model;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

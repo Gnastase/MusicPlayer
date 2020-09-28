@@ -1,4 +1,4 @@
-package ex1.Piesa;
+package PrimulExercitiu.domain.Model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
