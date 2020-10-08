@@ -35,7 +35,7 @@ public class DataSourceFilesAdapter implements DataSourceIOConnector {
 
 
     @Override
-    public String GetAName() {
+    public String getAName() {
         try {
             return  getRandomItem(getResourceFileAsString("Nume"));
         } catch (IOException e) {

@@ -14,12 +14,14 @@ import java.util.stream.Collectors;
 public class Main {
 
 
-    public static void runSingleThread(){
+    private static void runSingleThread(){
         ArrayList<Piesa> songs = Helper.getPlaylist();
         ArrayList<Movie> movies = Helper.getMovieList();
         HashMap<Piesa, Integer> historyMap = new HashMap<>();
 
         Helper.letTheShowStart(songs,movies,historyMap);
+
+        // test squash
 
         Helper.showMeTheCounts(historyMap);
         Helper.showMeTheTimeSpent(movies,historyMap);
@@ -33,7 +35,7 @@ public class Main {
 
 
     }
-    public static void runMultiThread(){
+    private static void runMultiThread(){
         ArrayList<Piesa> songs = Helper.getPlaylist();
         ArrayList<Movie> movies = Helper.getMovieList();
         HashMap<Piesa, Integer> historyMap = new HashMap<>();

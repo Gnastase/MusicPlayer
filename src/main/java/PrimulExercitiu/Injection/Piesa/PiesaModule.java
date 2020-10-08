@@ -13,7 +13,7 @@ public class PiesaModule {
 
     @Provides
     String provideNume(){
-        return source.GetAName();
+        return source.getAName();
     }
     @Provides
     Float provideDurata(){

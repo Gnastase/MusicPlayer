@@ -15,7 +15,7 @@ public class MovieModule {
     DataSourceIOConnector source = Helper.getSource();
 
     @Provides
-    String provideNume(){ return source.GetAName(); }
+    String provideNume(){ return source.getAName(); }
 
     @Provides
     Float provideDurata(){

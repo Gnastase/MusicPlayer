@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public interface DataSourceIOConnector {
 
-    String GetAName() ;
+    String getAName() ;
     Float getADuration() ;
     Boolean getABoolean();
 

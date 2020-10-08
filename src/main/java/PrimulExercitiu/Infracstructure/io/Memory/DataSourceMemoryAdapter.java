@@ -19,7 +19,7 @@ public class DataSourceMemoryAdapter implements DataSourceIOConnector {
         return list.get(rand.nextInt((int) length));
     }
     @Override
-     public String GetAName(){
+     public String getAName(){
         List<String> list = Arrays
                 .asList("Test1","Test2","Test3","Test4");
 
